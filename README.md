@@ -1,91 +1,129 @@
-# Travel Booking Platform
+# North East Adventure Tour Planner - Frontend
 
-A full-stack web application for browsing, booking, and managing travel packages. This platform features separate user and admin roles, JWT-based authentication, and a RESTful API backend.
+This is the frontend application for the North East Adventure Tour Planner. Built with React and TypeScript, it provides a modern and responsive user interface for browsing and booking adventure tours in the North East region.
 
-## Features
+## Tech Stack
 
-*   **User Features:**
-    *   User registration and login
-    *   Browse and filter tour packages
-    *   View detailed package information including descriptions, activities, inclusions, and user reviews
-    *   Add packages to a personal wishlist
-    *   Book tour packages
-    *   View personal booking history
-    *   Cancel pending bookings
-    *   Submit reviews and ratings for packages
-*   **Admin Features:**
-    *   Admin login with dedicated access
-    *   View all user bookings
-    *   Update booking statuses (e.g., confirm, cancel)
-    *   (Future enhancements could include package management, user management, etc.)
-
-## Technology Stack
-
-*   **Frontend:**
-    *   React 18
-    *   Vite
-    *   TypeScript
-    *   React Router DOM v6
-    *   Axios (for API communication)
-    *   React Query (for server state management)
-    *   Tailwind CSS (for styling)
-    *   Context API (for global state like auth and wishlist)
-*   **Backend:**
-    *   Node.js
-    *   Express.js
-    *   MongoDB (with Mongoose ODM)
-    *   JSON Web Tokens (JWT) for authentication
-    *   Bcrypt.js (for password hashing)
-
-## Screenshots
-
-(Here you can add a preview of your application)
-
-![Application Preview 1](frontend/assets/Screenshot.png)
+- React 19
+- TypeScript
+- Vite
+- React Router DOM v7
+- Axios for API communication
+- React Icons
+- Tailwind CSS
+- PostCSS
 
 ## Prerequisites
 
-*   Node.js (v18.x or later recommended)
-*   npm (v9.x or later) or yarn
-*   MongoDB (local instance or a cloud-hosted service like MongoDB Atlas)
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-## API Endpoints (Key Examples)
+## Installation
 
-The backend exposes a RESTful API. Key endpoints include:
-
-*   **Authentication:**
-    *   `POST /api/auth/register`: Register a new user.
-    *   `POST /api/auth/login`: Log in an existing user.
-    *   `GET /api/auth/me`: Get the currently authenticated user's details.
-*   **Tours/Packages:**
-    *   `GET /api/tours`: Get a list of all tour packages.
-    *   `GET /api/tours/:id`: Get details for a specific tour package.
-*   **Bookings (User):**
-    *   `POST /api/bookings`: Create a new booking.
-    *   `GET /api/bookings/my-bookings`: Get bookings for the authenticated user.
-    *   `PATCH /api/bookings/:id/cancel`: Cancel a booking (by the user who made it).
-*   **Bookings (Admin):**
-    *   `GET /api/bookings/admin/all`: Get all bookings (admin only).
-    *   `PATCH /api/bookings/admin/:id/status`: Update the status of a booking (admin only).
-*   **Reviews:**
-    *   `POST /api/reviews`: Submit a review for a package.
-    *   `GET /api/reviews/package/:packageId`: Get reviews for a specific package (implicitly handled by tour detail endpoint).
+1. Clone the repository
+2. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Create a `.env` file in the root directory with the following variables:
+   ```
+   VITE_API_URL=http://localhost:5000/api
+   ```
 
 ## Available Scripts
 
-### Backend (`backend/package.json`)
+- `npm run dev` - Start the development server
+- `npm run build` - Build the production-ready static assets
+- `npm run preview` - Preview the production build locally
 
-*   `start`: Runs the production server (e.g., `node src/server.js`).
-*   `dev`: Runs the server in development mode using `nodemon` for auto-restarts (e.g., `nodemon src/server.js`).
-*   (Other scripts like `test`, `lint` may be present or can be added).
+## Project Structure
 
-### Frontend (`frontend/package.json`)
+```
+frontend/
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── pages/            # Page components
+│   ├── contexts/         # React context providers
+│   ├── assets/           # Static assets (images, etc.)
+│   ├── App.tsx           # Main application component
+│   └── index.tsx         # Application entry point
+├── public/               # Public static files
+├── types.ts             # TypeScript type definitions
+├── constants.ts         # Application constants
+├── apiService.ts        # API service functions
+├── tailwind.config.js   # Tailwind CSS configuration
+├── postcss.config.js    # PostCSS configuration
+├── vite.config.ts       # Vite configuration
+└── tsconfig.json        # TypeScript configuration
+```
 
-*   `dev`: Starts the Vite development server.
-*   `build`: Builds the production-ready static assets.
-*   `lint`: Lints the codebase (e.g., using ESLint).
-*   `preview`: Serves the production build locally.
+## Features
+
+### User Features
+- User registration and authentication
+- Browse and filter tour packages
+- View detailed package information
+- Add packages to wishlist
+- Book tour packages
+- View booking history
+- Cancel pending bookings
+- Submit reviews and ratings
+
+### Admin Features
+- Admin dashboard
+- Manage bookings
+- Update booking statuses
+- View all user bookings
+
+## API Integration
+
+The frontend communicates with the backend through RESTful APIs. Key endpoints include:
+
+### Authentication
+- POST `/api/auth/register` - Register new user
+- POST `/api/auth/login` - User login
+- GET `/api/auth/profile` - Get user profile
+
+### Tours
+- GET `/api/tours` - Get all tours
+- GET `/api/tours/:id` - Get tour details
+
+### Bookings
+- POST `/api/bookings` - Create booking
+- GET `/api/bookings` - Get user bookings
+- PUT `/api/bookings/:id` - Update booking
+
+## Development Guidelines
+
+### Code Style
+- Follow TypeScript best practices
+- Use functional components with hooks
+- Implement proper error handling
+- Write meaningful comments
+- Follow the established project structure
+
+### State Management
+- Use React Context for global state
+- Implement proper loading states
+- Handle API errors gracefully
+
+### Styling
+- Use Tailwind CSS for styling
+- Follow mobile-first responsive design
+- Maintain consistent color scheme and typography
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-This project can be considered under the MIT License. (You may want to add a `LICENSE` file explicitly if desired). 
+This project is licensed under the MIT License. 
