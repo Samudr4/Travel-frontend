@@ -27,7 +27,7 @@ Follow these steps to set up the frontend:
 
 1. **Clone the repository**:
    ```bash
-   git clone your_repository_url
+   git clone https://github.com/USERNAME/REPOSITORY_NAME.git
    ```
 2. **Navigate to the frontend directory**:
    ```bash
